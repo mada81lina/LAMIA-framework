@@ -1,0 +1,17 @@
+run:
+  image: java:openjdk-8u72-jre
+  volumes:
+    - ${SOURCE_DIR}:/usr/src/myapp
+    - ${TEST_OUTPUT}:/home/test-output
+  working_dir: /usr/src/myapp
+  # 'hub.pub.local' is a container that runs selenium hub. Run <docker-compose -f docker-hub.yml up> before running this
+  external_links:
+    - hub.pub.local
+  environment:
+     HUB_URL: http://hub.pub.local:4444/wd/hub
+     JAR_PATH: ./target/global_framework-jar-with-dependencies.jar
+     XML_SUITE:
+     TEST_OUTPUT:
+     APP_URL:
+     SOURCE_DIR:
+  command: sh -c "java -DappUrl=$${APP_URL} -DhubUrl=$${HUB_URL} -jar $${JAR_PATH} $${XML_SUITE} -d /home/test-output"

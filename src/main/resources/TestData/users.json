@@ -1,0 +1,8 @@
+[
+  {
+    "id": "sysadmin",
+    "login": "admin",
+    "password": "password",
+    "randomize": false
+  }
+]

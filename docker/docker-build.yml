@@ -1,0 +1,13 @@
+version: '2'
+services:
+  maven:
+    image: maven:3.3.3-jdk-8
+    volumes:
+      - m2:/root/.m2
+      - ${SOURCE_DIR}:/usr/src/app
+    working_dir: /usr/src/app
+    command: mvn clean package
+    environment:
+      SOURCE_DIR:
+volumes:
+  m2: {}
