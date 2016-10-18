@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="TestNG" parallel="methods" thread-count="10">
-    <parameter name="browserName" value="firefox"/>
+<suite name="TEST SUITE" parallel="false" thread-count="10">
+    <parameter name="browserName" value="chrome"/>
+    <parameter name="appUrl" value="http://10.20.245.74:8090/index.html#/dashboard"/>
+    <parameter name="appUrl2" value="http://10.20.245.74:8090/index.html#/diagnostics"/>
 
+    <!--
     <test name="Regression Grid">
         <packages>
             <package name="testng.*"/>
         </packages>
+    </test>
+    -->
+
+
+    <test name="Lamia Tests">
+        <classes>
+            <class name="testng.DashboardTest" />
+            <class name="testng.DiagnosticsTest" />
+        </classes>
     </test>
 </suite>
