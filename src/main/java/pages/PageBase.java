@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 public abstract class PageBase {
 
     protected WebDriver driver = LocalWebDriverManager.getDriver();
-
+    public static boolean softAssertionCheck = true;
     protected String pageUrl = "/";
 
     @FindBy(id = "messagetext_1")
